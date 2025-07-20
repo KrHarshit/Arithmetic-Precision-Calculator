@@ -1,69 +1,37 @@
-APC - Arbitrary Precision Calculator
+# 💡 APC - Arbitrary Precision Calculator
 
-This project implements an arbitrary-precision calculator that can add, subtract, multiply, and divide very large integers, including negative numbers. The calculator uses doubly linked lists to store each digit of the operands and performs arithmetic similar to manual pen-and-paper methods.
+APC (Arbitrary Precision Calculator) is a command-line calculator that performs **addition**, **subtraction**, **multiplication**, and **division** on **very large integers**, including **negative numbers**, using **doubly linked lists**. It is designed to simulate arithmetic operations the way humans do by hand—digit by digit—making it ideal for educational and computational purposes.
 
-Features
-Handles arbitrarily large integers
+---
 
-Supports:
+## 📂 Features
 
-Addition (+)
+- 🧮 Handles arbitrarily large integers  
+- ➕ Addition, ➖ Subtraction, ✖️ Multiplication, ➗ Division support  
+- ➕➖ Accepts both **positive** and **negative** numbers  
+- 💾 Each digit is stored in a **doubly linked list** node  
+- 🧹 Result output omits **leading zeros**  
+- ✅ Handles edge cases like zero operands and division by zero  
 
-Subtraction (-)
+---
 
-Multiplication (x)
+## 📄 Project Structure
 
-Division (/)
+| File               | Description                                               |
+|--------------------|-----------------------------------------------------------|
+| `main.c`           | Parses arguments, handles signs, and routes operations    |
+| `addition.c`       | Logic to add two large numbers digit by digit             |
+| `subtraction.c`    | Logic to subtract one number from another with borrow     |
+| `multiplication.c` | Long multiplication algorithm using shifting and summing  |
+| `division.c`       | Long division using repeated subtraction and estimation   |
+| `apc.h`            | Type definitions and function prototypes                  |
+| `Makefile`         | Build, run, and clean automation script                   |
 
-Accepts both positive and negative numbers
+---
 
-Internally uses doubly linked lists
+## 🏗️ Compilation
 
-Displays result without leading zeroes
+To compile the project using the provided Makefile:
 
-🧰 Files
-File	Description
-main.c	Parses input, handles signs, and triggers arithmetic operations
-addition.c	Logic for adding two large numbers
-subtraction.c	Logic for subtracting one large number from another
-multiplication.c	Logic for multiplying two large numbers
-division.c	Logic for dividing two large numbers
-apc.h	Header file containing type definitions and function declarations
-Makefile	Automates compilation, cleaning, and running the project
-
-🏗️ Compilation
-Use the provided Makefile to compile the project.
+```bash
 make
-This will generate the executable apc_program.
-
-To clean compiled object files and the executable:
-make clean
-
-To compile and run:
-make run
-
-🚀 Usage
-The program accepts three command-line arguments:
-
-./apc_program <number1> <operator> <number2>
-<number1> and <number2>: Operands (can be negative and arbitrarily large)
-
-<operator>: One of +, -, x, /
-
-Note: Ensure all inputs are integers, and the operator is a single character.
-
-📊 Sample Outputs
-bash
-Copy
-Edit
-$ ./apc_program 987654321987654321 + 123456789123456789
-1111111111111111110
-
-$ ./apc_program -987654321987654321 + 123456789123456789
--864197532864197532
-
-$ ./apc_program 100000000000000000000 x 2
-200000000000000000000
-
-$ ./apc_program 100000000000000000000 / 2
-50000000000000000000
